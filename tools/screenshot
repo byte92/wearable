@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ $# -gt 0 ]
+then
+		name=$1
+
+		adb -s emulator-$name shell screencap -p /sdcard/DCIM/screenshot.png
+		adb -s emulator-$name pull /sdcard/DCIM /Users/langjun/Desktop/
+		adb -s emulator-$name shell rm -rf /sdcard/DCIM/screenshot.png
+else
+		echo "please input a port to format the emulator name.\n"
+fi
+
+# adb -s emulator-$name shell screencap -p /sdcard/DCIM/screenshot.png
+# adb -s emulator-$name pull /sdcard/DCIM /Users/langjun/Desktop/
+# adb -s emulator-$name rm -rf /sdcard/DCIM/screenshot.png
